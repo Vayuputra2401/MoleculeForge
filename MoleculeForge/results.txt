@@ -1,0 +1,356 @@
+DEBUG: Generating 3 molecules from description: A brain-penetrant HDAC inhibitor with selectivity for HDAC6, suitable for neurodegenerative disease treatment.
+The molecule should:
+1. Contain a zinc-binding group (hydroxamic acid or similar)
+2. Include a linker region with optimal length for HDAC6 binding
+3. Have a cap group that provides selectivity over other HDAC isoforms
+4. Possess good blood-brain barrier penetration (low MW, few H-bond donors)
+5. Maintain high metabolic stability to enable once-daily dosing
+6. Have LogP between 2.0-3.5 and TPSA under 90 Å²
+DEBUG: Property constraints: {'logP': {'min': 1.0, 'max': 4.0}, 'molecularWeight': {'min': 200.0, 'max': 500.0}, 'QED': {'min': 0.5, 'max': 0.9}}
+DEBUG: Attempt 1 with temperature=0.9, top_p=1.0
+DEBUG: API response received in 4.54s
+DEBUG: Received response from Gemini API: 1173 chars
+DEBUG: Successfully extracted 6 SMILES from JSON
+DEBUG: Found 6 SMILES candidates
+DEBUG: Molecule outside property constraints: C[C@@H](NC(=O)CCc1ccccc1)C(=O)NO
+DEBUG: Properties - LogP: 0.63, MW: 236.27, QED: 0.52
+DEBUG: Molecule outside property constraints: CC(=O)Nc1ccc(CC(=O)NO)cc1C(=O)c1ccccc1
+DEBUG: Properties - LogP: 1.92, MW: 312.32, QED: 0.45
+DEBUG: Valid molecule found: Cc1ccc(CN(C)C(=O)CCC(=O)NO)cc1C
+DEBUG: Properties - LogP: 1.55, MW: 264.32, QED: 0.63
+DEBUG: Valid molecule found: Cc1ccc(CNC(=O)CCC(=O)NO)cc1C
+DEBUG: Properties - LogP: 1.21, MW: 250.30, QED: 0.54
+DEBUG: Molecule outside property constraints: CC(=O)Nc1ccccc1C(=O)CCC(=O)NO
+DEBUG: Properties - LogP: 1.11, MW: 250.25, QED: 0.41
+DEBUG: Molecule outside property constraints: CN(C)c1ccc(C(=O)CCC(=O)NO)cc1
+DEBUG: Properties - LogP: 1.22, MW: 236.27, QED: 0.46
+DEBUG: Found 2 valid molecules in attempt 1
+DEBUG: Waiting 2s before next attempt...
+DEBUG: Attempt 2 with temperature=0.7, top_p=0.95
+DEBUG: API response received in 3.81s
+DEBUG: Received response from Gemini API: 1450 chars
+DEBUG: Successfully extracted 6 SMILES from JSON
+DEBUG: Found 6 SMILES candidates
+DEBUG: Molecule outside property constraints: CC(=O)Nc1ccc(CCNc2ccc(C(=O)NO)cc2)cc1
+DEBUG: Properties - LogP: 2.42, MW: 313.36, QED: 0.49
+DEBUG: Valid molecule found: Cc1cc(CN(C)Cc2ccc(C(=O)NO)cc2)n[nH]1
+DEBUG: Properties - LogP: 1.47, MW: 274.32, QED: 0.57
+DEBUG: Molecule outside property constraints: COc1ccc(C(=O)Nc2ccc(CCNC(=O)NO)cc2)cc1
+DEBUG: Properties - LogP: 2.18, MW: 329.36, QED: 0.48
+DEBUG: Valid molecule found: CC(C)c1ccc(C(=O)NCCc2cccnc2C(=O)NO)cc1
+DEBUG: Properties - LogP: 2.30, MW: 327.38, QED: 0.56
+DEBUG: Valid molecule found: Cc1nc(CN2CCN(Cc3ccc(C(=O)NO)cc3)CC2)cs1
+DEBUG: Properties - LogP: 1.89, MW: 346.46, QED: 0.64
+DEBUG: Invalid SMILES skipped: Fc1ccc(C(=O)NCCCc2cc(C(=O)NO)nn2)cc1
+DEBUG: Found 3 valid molecules in attempt 2
+DEBUG: Total valid molecules found across all attempts: 5
+DEBUG: Initializing MoleculeGenerator with VAE
+DEBUG: Using device: cpu
+Loading pre-trained model: seyonec/ChemBERTa-zinc-base-v1
+Some weights of the model checkpoint at seyonec/ChemBERTa-zinc-base-v1 were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model). 
+Device set to use cpu
+Successfully loaded ChemBERTa model on cpu
+DEBUG: Loading reference molecules
+DEBUG: Training initial Symbolic Regression models
+DEBUG: Reduced VAE embedding dimensions from 64 to 10
+DEBUG: Training LogP SR model
+DEBUG: Training QED SR model
+DEBUG: Training MolecularWeight SR model
+DEBUG: LogP SR model score: 0.5279
+DEBUG: QED SR model score: -0.5337
+DEBUG: MW SR model score: -3.6785
+DEBUG: MoleculeGenerator initialized
+Refining molecule: Cc1ccc(CN(C)C(=O)CCC(=O)NO)cc1C
+Initial properties - LogP: 1.55, QED: 0.63, MW: 264.32
+Target properties - LogP: 2.50, QED: 0.70, MW: 350.00
+Iteration 1/20
+Iteration 2/20
+Iteration 3/20
+Iteration 4/20
+Iteration 5/20
+Iteration 6/20
+Retraining SR models with collected data
+SR models retrained - LogP: 0.6900, QED: -14.2167, MW: 0.9741
+Iteration 7/20
+Iteration 8/20
+Iteration 9/20
+Iteration 10/20
+Iteration 11/20
+Retraining SR models with collected data
+SR models retrained - LogP: 0.6900, QED: -14.2167, MW: 0.9741
+Iteration 12/20
+Iteration 13/20
+Iteration 14/20
+Iteration 15/20
+Iteration 16/20
+Retraining SR models with collected data
+SR models retrained - LogP: 0.6900, QED: -14.2167, MW: 0.9741
+Iteration 17/20
+Iteration 18/20
+Iteration 19/20
+Iteration 20/20
+Refinement complete
+Final properties - LogP: 1.55, QED: 0.63, MW: 264.32
+DEBUG: Initializing MoleculeGenerator with VAE
+DEBUG: Using device: cpu
+Loading pre-trained model: seyonec/ChemBERTa-zinc-base-v1
+Some weights of the model checkpoint at seyonec/ChemBERTa-zinc-base-v1 were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model). 
+Device set to use cpu
+Successfully loaded ChemBERTa model on cpu
+DEBUG: Loading reference molecules
+DEBUG: Training initial Symbolic Regression models
+DEBUG: Reduced VAE embedding dimensions from 64 to 10
+DEBUG: Training LogP SR model
+DEBUG: Training QED SR model
+DEBUG: Training MolecularWeight SR model
+DEBUG: LogP SR model score: 0.7339
+DEBUG: QED SR model score: -0.5337
+DEBUG: MW SR model score: -2.3431
+DEBUG: MoleculeGenerator initialized
+Refining molecule: Cc1ccc(CNC(=O)CCC(=O)NO)cc1C
+Initial properties - LogP: 1.21, QED: 0.54, MW: 250.30
+Target properties - LogP: 2.50, QED: 0.70, MW: 350.00
+Iteration 1/20
+Iteration 2/20
+Found better molecule with score 0.2801
+Properties - LogP: 3.37, QED: 0.55, MW: 368.39
+Iteration 3/20
+Generated invalid molecule with masks, falling back to reference set
+Iteration 4/20
+Iteration 5/20
+Iteration 6/20
+Retraining SR models with collected data
+SR models retrained - LogP: 0.9099, QED: -31.0398, MW: 0.9969
+Iteration 7/20
+Iteration 8/20
+Iteration 9/20
+Iteration 10/20
+Iteration 11/20
+Retraining SR models with collected data
+SR models retrained - LogP: 0.5290, QED: -5.5016, MW: 0.8035
+Iteration 12/20
+Iteration 13/20
+Iteration 14/20
+Iteration 15/20
+Iteration 16/20
+Retraining SR models with collected data
+SR models retrained - LogP: 0.5290, QED: -5.5016, MW: 0.8035
+Iteration 17/20
+Iteration 18/20
+Iteration 19/20
+Iteration 20/20
+Refinement complete
+Final properties - LogP: 3.37, QED: 0.55, MW: 368.39
+DEBUG: Initializing MoleculeGenerator with VAE
+DEBUG: Using device: cpu
+Loading pre-trained model: seyonec/ChemBERTa-zinc-base-v1
+Some weights of the model checkpoint at seyonec/ChemBERTa-zinc-base-v1 were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model). 
+Device set to use cpu
+Successfully loaded ChemBERTa model on cpu
+DEBUG: Loading reference molecules
+DEBUG: Training initial Symbolic Regression models
+DEBUG: Reduced VAE embedding dimensions from 64 to 10
+DEBUG: Training LogP SR model
+DEBUG: Training QED SR model
+DEBUG: Training MolecularWeight SR model
+DEBUG: LogP SR model score: 0.2534
+DEBUG: QED SR model score: -0.5337
+DEBUG: MW SR model score: -2.0581
+DEBUG: MoleculeGenerator initialized
+Refining molecule: Cc1cc(CN(C)Cc2ccc(C(=O)NO)cc2)n[nH]1
+Initial properties - LogP: 1.47, QED: 0.57, MW: 274.32
+Target properties - LogP: 2.50, QED: 0.70, MW: 350.00
+Iteration 1/20
+Iteration 2/20
+Iteration 3/20
+Iteration 4/20
+Iteration 5/20
+Iteration 6/20
+Iteration 7/20
+Iteration 8/20
+Iteration 9/20
+Iteration 10/20
+Iteration 11/20
+Iteration 12/20
+Iteration 13/20
+Iteration 14/20
+Iteration 15/20
+Iteration 16/20
+Iteration 17/20
+Iteration 18/20
+Iteration 19/20
+Iteration 20/20
+Refinement complete
+Final properties - LogP: 1.47, QED: 0.57, MW: 274.32
+
+
+
+
+
+
+
+
+
+DEBUG: Generating 3 molecules from description: A brain-penetrant HDAC inhibitor with selectivity for HDAC6, suitable for neurodegenerative disease treatment.
+The molecule should:
+1. Contain a zinc-binding group (hydroxamic acid or similar)
+2. Include a linker region with optimal length for HDAC6 binding
+3. Have a cap group that provides selectivity over other HDAC isoforms
+4. Possess good blood-brain barrier penetration (low MW, few H-bond donors)
+5. Maintain high metabolic stability to enable once-daily dosing
+6. Have LogP between 2.0-3.5 and TPSA under 90 Å²
+DEBUG: Property constraints: {'logP': {'min': 1.0, 'max': 4.0}, 'molecularWeight': {'min': 200.0, 'max': 500.0}, 'QED': {'min': 0.5, 'max': 0.9}}
+DEBUG: Attempt 1 with temperature=0.9, top_p=1.0
+DEBUG: API response received in 3.86s
+DEBUG: Received response from Gemini API: 1328 chars
+DEBUG: Successfully extracted 6 SMILES from JSON
+DEBUG: Found 6 SMILES candidates
+DEBUG: Valid molecule found: C[C@@H](N)CC(=O)N(O)C(=O)CCc1ccc(OC(F)(F)F)cc1
+DEBUG: Properties - LogP: 2.00, MW: 334.29, QED: 0.61
+DEBUG: Valid molecule found: Cc1cccc(NC(=O)CCNC(=O)N(O)c2ccccc2)c1
+DEBUG: Properties - LogP: 2.93, MW: 313.36, QED: 0.59
+DEBUG: Valid molecule found: Cc1ccccc1NC(=O)CCCC(=O)N(O)c1cccnc1
+DEBUG: Properties - LogP: 2.92, MW: 313.36, QED: 0.63
+DEBUG: Molecule outside property constraints: CC(=O)Nc1ccc(CNC(=O)CNC(=O)N(O)c2ccccc2)cc1
+DEBUG: Properties - LogP: 1.87, MW: 356.38, QED: 0.47
+DEBUG: Molecule outside property constraints: COc1cccc(CNC(=O)CC(=O)N(O)c2ccccc2)c1
+DEBUG: Properties - LogP: 2.12, MW: 314.34, QED: 0.49
+DEBUG: Valid molecule found: CC(=O)N(O)C(=O)CCNC(=O)c1ccc(C(F)(F)F)cc1
+DEBUG: Properties - LogP: 1.59, MW: 318.25, QED: 0.65
+DEBUG: Found 4 valid molecules in attempt 1
+DEBUG: Total valid molecules found across all attempts: 4
+DEBUG: Initializing MoleculeGenerator with VAE
+DEBUG: Using device: cpu
+Loading pre-trained model: seyonec/ChemBERTa-zinc-base-v1
+Some weights of the model checkpoint at seyonec/ChemBERTa-zinc-base-v1 were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Device set to use cpu
+Successfully loaded ChemBERTa model on cpu
+DEBUG: Loading reference molecules
+DEBUG: Training initial Symbolic Regression models
+DEBUG: Reduced VAE embedding dimensions from 64 to 10
+DEBUG: Training LogP SR model
+DEBUG: Training QED SR model
+DEBUG: Training MolecularWeight SR model
+DEBUG: LogP SR model score: 0.6732
+DEBUG: QED SR model score: -0.5337
+DEBUG: MW SR model score: -2.1739
+DEBUG: MoleculeGenerator initialized
+Refining molecule: C[C@@H](N)CC(=O)N(O)C(=O)CCc1ccc(OC(F)(F)F)cc1
+Initial properties - LogP: 2.00, QED: 0.61, MW: 334.29
+Target properties - LogP: 2.50, QED: 0.70, MW: 350.00
+Iteration 1/20
+Iteration 2/20
+Iteration 3/20
+Iteration 4/20
+Iteration 5/20
+Iteration 6/20
+Iteration 7/20
+Iteration 8/20
+Iteration 9/20
+Iteration 10/20
+Iteration 11/20
+Iteration 12/20
+Iteration 13/20
+Iteration 14/20
+Iteration 15/20
+Iteration 16/20
+Iteration 17/20
+Iteration 18/20
+Iteration 19/20
+Iteration 20/20
+Refinement complete
+Final properties - LogP: 2.00, QED: 0.61, MW: 334.29
+DEBUG: Initializing MoleculeGenerator with VAE
+DEBUG: Using device: cpu
+Loading pre-trained model: seyonec/ChemBERTa-zinc-base-v1
+Some weights of the model checkpoint at seyonec/ChemBERTa-zinc-base-v1 were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Device set to use cpu
+Successfully loaded ChemBERTa model on cpu
+DEBUG: Loading reference molecules
+DEBUG: Training initial Symbolic Regression models
+DEBUG: Reduced VAE embedding dimensions from 64 to 10
+DEBUG: Training LogP SR model
+DEBUG: Training QED SR model
+DEBUG: Training MolecularWeight SR model
+DEBUG: LogP SR model score: 0.1342
+DEBUG: QED SR model score: -0.5337
+DEBUG: MW SR model score: -1.7659
+DEBUG: MoleculeGenerator initialized
+Refining molecule: Cc1cccc(NC(=O)CCNC(=O)N(O)c2ccccc2)c1
+Initial properties - LogP: 2.93, QED: 0.59, MW: 313.36
+Target properties - LogP: 2.50, QED: 0.70, MW: 350.00
+Iteration 1/20
+Iteration 2/20
+Iteration 3/20
+Iteration 4/20
+Iteration 5/20
+Iteration 6/20
+Iteration 7/20
+Iteration 8/20
+Iteration 9/20
+Iteration 10/20
+Iteration 11/20
+Iteration 12/20
+Iteration 13/20
+Iteration 14/20
+Iteration 15/20
+Iteration 16/20
+Iteration 17/20
+Iteration 18/20
+Iteration 19/20
+Iteration 20/20
+Refinement complete
+Final properties - LogP: 2.93, QED: 0.59, MW: 313.36
+DEBUG: Initializing MoleculeGenerator with VAE
+DEBUG: Using device: cpu
+Loading pre-trained model: seyonec/ChemBERTa-zinc-base-v1
+Some weights of the model checkpoint at seyonec/ChemBERTa-zinc-base-v1 were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Device set to use cpu
+Successfully loaded ChemBERTa model on cpu
+DEBUG: Loading reference molecules
+DEBUG: Training initial Symbolic Regression models
+DEBUG: Reduced VAE embedding dimensions from 64 to 10
+DEBUG: Training LogP SR model
+DEBUG: Training QED SR model
+DEBUG: Training MolecularWeight SR model
+DEBUG: LogP SR model score: 0.7474
+DEBUG: QED SR model score: -0.5337
+DEBUG: MW SR model score: -4.2872
+DEBUG: MoleculeGenerator initialized
+Refining molecule: Cc1ccccc1NC(=O)CCCC(=O)N(O)c1cccnc1
+Initial properties - LogP: 2.92, QED: 0.63, MW: 313.36
+Target properties - LogP: 2.50, QED: 0.70, MW: 350.00
+Iteration 1/20
+Iteration 2/20
+Iteration 3/20
+Iteration 4/20
+Iteration 5/20
+Iteration 6/20
+Iteration 7/20
+Iteration 8/20
+Iteration 9/20
+Iteration 10/20
+Iteration 11/20
+Iteration 12/20
+Iteration 13/20
+Iteration 14/20
+Iteration 15/20
+Iteration 16/20
+Iteration 17/20
+Iteration 18/20
+Iteration 19/20
+Iteration 20/20
+Refinement complete
+Final properties - LogP: 2.92, QED: 0.63, MW: 313.36
