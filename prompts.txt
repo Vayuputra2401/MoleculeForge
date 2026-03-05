@@ -1,0 +1,54 @@
+A selective NLRP3 inflammasome inhibitor targeting chronic inflammatory diseases with improved metabolic stability.
+The molecule should:
+1. Directly bind to the NLRP3 protein (not targeting ASC or caspase-1)
+2. Block inflammasome assembly without affecting other innate immune pathways
+3. Show high potency (IC50<100nM) in inhibiting IL-1β and IL-18 release
+4. Feature a structure that avoids reactive intermediates or covalent binding
+5. Have balanced physicochemical properties for oral dosing (LogP 2-4, 3-6 rotatable bonds)
+6. Demonstrate CNS exclusion to minimize central side effects (low BBB penetration)
+7. Show efficacy in models of inflammatory diseases (e.g., NASH, inflammatory bowel disease)
+
+
+
+
+An orally available, small-molecule positive allosteric modulator of the GLP-1 receptor for type 2 diabetes.
+The molecule should:
+1. Bind to the allosteric site of GLP-1R, not competing with the endogenous peptide
+2. Enhance the activity of endogenous GLP-1 without activating the receptor alone
+3. Have excellent oral bioavailability (F>30%)
+4. Show minimal risk of hypoglycemia due to glucose-dependent mechanism
+5. Incorporate features that increase residence time at the receptor
+6. Maintain metabolic stability with minimal CYP450 inhibition
+7. Have suitable physicochemical properties (MW<500, LogP 1.5-3.5, TPSA 75-140)
+
+
+A potent and selective MCL-1 inhibitor for treating multiple myeloma, overcoming resistance to BCL-2 inhibitors.
+The molecule should:
+1. Feature a structure capable of binding to the BH3-binding groove of MCL-1
+2. Demonstrate selectivity for MCL-1 over BCL-2 and BCL-XL (at least 10-fold)
+3. Include conformationally-restricted scaffolds to improve binding affinity
+4. Have drug-like properties suitable for oral administration (MW<550, HBD≤3)
+5. Incorporate solubilizing groups to overcome the high lipophilicity typical of this class
+6. Show metabolic stability with t1/2 >4 hours in human liver microsomes
+
+
+
+A dual-acting SGLT1/SGLT2 inhibitor for improved glycemic control in type 2 diabetes with reduced GI side effects.
+The molecule should:
+1. Contain a C-aryl glucoside core structure
+2. Balance inhibition of both SGLT1 (intestinal) and SGLT2 (renal) transporters
+3. Include modifications that reduce intestinal SGLT1 inhibition to minimize diarrhea risk
+4. Have moderate lipophilicity (LogP 2.0-3.0) for optimal absorption
+5. Show high renal excretion to target kidney SGLT2
+6. Maintain glucose-lowering efficacy while minimizing hypoglycemia risk
+
+
+A brain-penetrant HDAC inhibitor with selectivity for HDAC6, suitable for neurodegenerative disease treatment.
+The molecule should:
+1. Contain a zinc-binding group (hydroxamic acid or similar)
+2. Include a linker region with optimal length for HDAC6 binding
+3. Have a cap group that provides selectivity over other HDAC isoforms
+4. Possess good blood-brain barrier penetration (low MW, few H-bond donors)
+5. Maintain high metabolic stability to enable once-daily dosing
+6. Have LogP between 2.0-3.5 and TPSA under 90 Å²
+
